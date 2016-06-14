@@ -11,13 +11,37 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+     //  MARK: Properties
     var window: UIWindow?
-
+    
+    //variables to be used by more than one viewcontroller
+    var historyArray : [History] = []
+    var languageArray:[LanguageCodes] = []
+    var sourceLan:LanguageCodes!
+    var targetLan:LanguageCodes!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        //UINavigationBar.appearance().barTintColor = UIColor.greenColor()
+        
+        //get uimages from image files
+        let amImage = UIImage(named:"AmharicIcon.png")
+        let enImage = UIImage(named:"EnglishIcon.png")
+        let deImage = UIImage(named:"GermanIcon.png")
+        
+        // make lists of languages
+        languageArray.append(LanguageCodes(name: "Amharic", langCode: "am", flag: amImage!))
+        languageArray.append( LanguageCodes(name: "English", langCode: "en", flag:enImage!))
+        languageArray.append( LanguageCodes(name: "German", langCode: "de", flag:deImage!))
+        if(sourceLan == nil) {
+           sourceLan = LanguageCodes(name: "Amharic", langCode: "am", flag: amImage!)
+        }
+        if(targetLan == nil) {
+           targetLan = LanguageCodes(name: "English", langCode: "en", flag:enImage!)
+        }
+       return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

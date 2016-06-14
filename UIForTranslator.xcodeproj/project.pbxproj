@@ -7,9 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A00B2C31C5A9D9700CEE725 /* AbyssinicaSIL-R.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A00B2C21C5A9B2B00CEE725 /* AbyssinicaSIL-R.ttf */; };
+		1A03F2541C47C03C004E7BAE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A03F2531C47C03C004E7BAE /* Default-568h@2x.png */; };
+		1A03F2561C47DA07004E7BAE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A03F2551C47DA07004E7BAE /* MessageUI.framework */; };
+		1A0D6B421C4E40CE0033CF60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0D6B411C4E40CE0033CF60 /* AVFoundation.framework */; };
+		1A1140481C5661EA005E7DBB /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1140471C5661EA005E7DBB /* KeyboardViewController.swift */; };
+		1A11404C1C5661EA005E7DBB /* AmharicKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1A1140451C5661E9005E7DBB /* AmharicKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1A1CF3BA1C5CCDF200AA8CDA /* TokenRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1CF3B91C5CCDF100AA8CDA /* TokenRequester.swift */; };
+		1A1CF3BC1C5CD61900AA8CDA /* AbyssinicaSIL-R.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A00B2C21C5A9B2B00CEE725 /* AbyssinicaSIL-R.ttf */; };
+		1A2218211C789CBA0066879A /* TableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2218201C789CBA0066879A /* TableViewCellController.swift */; };
+		1A2218271C78CDD00066879A /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2218261C78CDD00066879A /* History.swift */; };
+		1A22D8FB1C49528D00D2631A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A22D8FA1C49528C00D2631A /* AboutViewController.swift */; };
+		1A4258B11C4426EA00F6E890 /* SourceLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4258B01C4426EA00F6E890 /* SourceLanguageController.swift */; };
+		1A4258B31C44273C00F6E890 /* TargetLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4258B21C44273C00F6E890 /* TargetLanguageController.swift */; };
+		1A4258B51C4429F800F6E890 /* LanguageCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4258B41C4429F800F6E890 /* LanguageCodes.swift */; };
+		1A4258D51C454C8500F6E890 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4258D41C454C8500F6E890 /* SettingsViewController.swift */; };
+		1A4258D71C45523600F6E890 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4258D61C45523600F6E890 /* HistoryViewController.swift */; };
+		1A5A24E41CC5161100DAA825 /* globeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24E31CC5161100DAA825 /* globeIcon.png */; };
+		1A5A24E61CC5161E00DAA825 /* backspaceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24E51CC5161E00DAA825 /* backspaceIcon.png */; };
+		1A5A24E81CC5162900DAA825 /* extendIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24E71CC5162900DAA825 /* extendIcon.png */; };
+		1A5A24EA1CC51F3200DAA825 /* GermanIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24E91CC51F3100DAA825 /* GermanIcon.png */; };
+		1A5A24EC1CC51F6600DAA825 /* AmharicIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24EB1CC51F6600DAA825 /* AmharicIcon.png */; };
+		1A5A24EE1CC51F7500DAA825 /* EnglishIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24ED1CC51F7500DAA825 /* EnglishIcon.png */; };
+		1A5A24F01CC51F8D00DAA825 /* Swap.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24EF1CC51F8D00DAA825 /* Swap.png */; };
+		1A5A24F21CC51FD200DAA825 /* SettingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24F11CC51FD200DAA825 /* SettingsIcon.png */; };
+		1A5A24F41CC51FE800DAA825 /* SettingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24F31CC51FE800DAA825 /* SettingIcon.png */; };
+		1A5A24F61CC51FFA00DAA825 /* SpeakerOnIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24F51CC51FFA00DAA825 /* SpeakerOnIcon.png */; };
+		1A5A24F81CC5200B00DAA825 /* SpeakerOffIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24F71CC5200B00DAA825 /* SpeakerOffIcon.png */; };
+		1A5A24FA1CC5202D00DAA825 /* mic.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24F91CC5202D00DAA825 /* mic.png */; };
+		1A5A24FC1CC5203B00DAA825 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5A24FB1CC5203B00DAA825 /* home.png */; };
+		1A5A24FD1CC527CE00DAA825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AF81C941C441DB000EA45F8 /* Main.storyboard */; };
 		1AF81C911C441DB000EA45F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF81C901C441DB000EA45F8 /* AppDelegate.swift */; };
-		1AF81C931C441DB000EA45F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF81C921C441DB000EA45F8 /* ViewController.swift */; };
-		1AF81C961C441DB000EA45F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AF81C941C441DB000EA45F8 /* Main.storyboard */; };
+		1AF81C931C441DB000EA45F8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF81C921C441DB000EA45F8 /* MainViewController.swift */; };
 		1AF81C991C441DB000EA45F8 /* UIForTranslator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1AF81C971C441DB000EA45F8 /* UIForTranslator.xcdatamodeld */; };
 		1AF81C9B1C441DB000EA45F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AF81C9A1C441DB000EA45F8 /* Assets.xcassets */; };
 		1AF81C9E1C441DB000EA45F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AF81C9C1C441DB000EA45F8 /* LaunchScreen.storyboard */; };
@@ -18,6 +47,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A11404A1C5661EA005E7DBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AF81C851C441DAF00EA45F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A1140441C5661E9005E7DBB;
+			remoteInfo = AmharicKeyboard;
+		};
 		1AF81CA51C441DB000EA45F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AF81C851C441DAF00EA45F8 /* Project object */;
@@ -34,10 +70,53 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1A1140501C5661EA005E7DBB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1A11404C1C5661EA005E7DBB /* AmharicKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1A00B2C21C5A9B2B00CEE725 /* AbyssinicaSIL-R.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AbyssinicaSIL-R.ttf"; path = "../../../../Downloads/AbyssinicaSIL-1-2.500/AbyssinicaSIL-R.ttf"; sourceTree = "<group>"; };
+		1A03F2531C47C03C004E7BAE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1A03F2551C47DA07004E7BAE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		1A0D6B411C4E40CE0033CF60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1A1140451C5661E9005E7DBB /* AmharicKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AmharicKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A1140471C5661EA005E7DBB /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		1A1140491C5661EA005E7DBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A1CF3B91C5CCDF100AA8CDA /* TokenRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenRequester.swift; sourceTree = "<group>"; };
+		1A2218201C789CBA0066879A /* TableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellController.swift; sourceTree = "<group>"; };
+		1A2218261C78CDD00066879A /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = History.swift; path = ../History.swift; sourceTree = "<group>"; };
+		1A22D8FA1C49528C00D2631A /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		1A4258B01C4426EA00F6E890 /* SourceLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SourceLanguageController.swift; path = ../SourceLanguageController.swift; sourceTree = "<group>"; };
+		1A4258B21C44273C00F6E890 /* TargetLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TargetLanguageController.swift; path = ../TargetLanguageController.swift; sourceTree = "<group>"; };
+		1A4258B41C4429F800F6E890 /* LanguageCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageCodes.swift; sourceTree = "<group>"; };
+		1A4258D41C454C8500F6E890 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
+		1A4258D61C45523600F6E890 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		1A5A24E31CC5161100DAA825 /* globeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globeIcon.png; sourceTree = "<group>"; };
+		1A5A24E51CC5161E00DAA825 /* backspaceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backspaceIcon.png; sourceTree = "<group>"; };
+		1A5A24E71CC5162900DAA825 /* extendIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = extendIcon.png; sourceTree = "<group>"; };
+		1A5A24E91CC51F3100DAA825 /* GermanIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GermanIcon.png; sourceTree = "<group>"; };
+		1A5A24EB1CC51F6600DAA825 /* AmharicIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AmharicIcon.png; sourceTree = "<group>"; };
+		1A5A24ED1CC51F7500DAA825 /* EnglishIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EnglishIcon.png; sourceTree = "<group>"; };
+		1A5A24EF1CC51F8D00DAA825 /* Swap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Swap.png; sourceTree = "<group>"; };
+		1A5A24F11CC51FD200DAA825 /* SettingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsIcon.png; sourceTree = "<group>"; };
+		1A5A24F31CC51FE800DAA825 /* SettingIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingIcon.png; sourceTree = "<group>"; };
+		1A5A24F51CC51FFA00DAA825 /* SpeakerOnIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpeakerOnIcon.png; sourceTree = "<group>"; };
+		1A5A24F71CC5200B00DAA825 /* SpeakerOffIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpeakerOffIcon.png; sourceTree = "<group>"; };
+		1A5A24F91CC5202D00DAA825 /* mic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic.png; sourceTree = "<group>"; };
+		1A5A24FB1CC5203B00DAA825 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		1AF81C8D1C441DAF00EA45F8 /* UIForTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIForTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF81C901C441DB000EA45F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1AF81C921C441DB000EA45F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1AF81C921C441DB000EA45F8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1AF81C951C441DB000EA45F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AF81C981C441DB000EA45F8 /* UIForTranslator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UIForTranslator.xcdatamodel; sourceTree = "<group>"; };
 		1AF81C9A1C441DB000EA45F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,10 +131,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1A1140421C5661E9005E7DBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AF81C8A1C441DAF00EA45F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A0D6B421C4E40CE0033CF60 /* AVFoundation.framework in Frameworks */,
+				1A03F2561C47DA07004E7BAE /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +164,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1140461C5661EA005E7DBB /* AmharicKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1A5A24E51CC5161E00DAA825 /* backspaceIcon.png */,
+				1A5A24E71CC5162900DAA825 /* extendIcon.png */,
+				1A5A24E31CC5161100DAA825 /* globeIcon.png */,
+				1A00B2C21C5A9B2B00CEE725 /* AbyssinicaSIL-R.ttf */,
+				1A1140471C5661EA005E7DBB /* KeyboardViewController.swift */,
+				1A1140491C5661EA005E7DBB /* Info.plist */,
+			);
+			path = AmharicKeyboard;
+			sourceTree = "<group>";
+		};
 		1AF81C841C441DAF00EA45F8 = {
 			isa = PBXGroup;
 			children = (
+				1A0D6B411C4E40CE0033CF60 /* AVFoundation.framework */,
+				1A03F2551C47DA07004E7BAE /* MessageUI.framework */,
+				1A03F2531C47C03C004E7BAE /* Default-568h@2x.png */,
 				1AF81C8F1C441DAF00EA45F8 /* UIForTranslator */,
 				1AF81CA71C441DB000EA45F8 /* UIForTranslatorTests */,
 				1AF81CB21C441DB000EA45F8 /* UIForTranslatorUITests */,
+				1A1140461C5661EA005E7DBB /* AmharicKeyboard */,
 				1AF81C8E1C441DAF00EA45F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +197,7 @@
 				1AF81C8D1C441DAF00EA45F8 /* UIForTranslator.app */,
 				1AF81CA41C441DB000EA45F8 /* UIForTranslatorTests.xctest */,
 				1AF81CAF1C441DB000EA45F8 /* UIForTranslatorUITests.xctest */,
+				1A1140451C5661E9005E7DBB /* AmharicKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,9 +205,28 @@
 		1AF81C8F1C441DAF00EA45F8 /* UIForTranslator */ = {
 			isa = PBXGroup;
 			children = (
+				1A5A24FB1CC5203B00DAA825 /* home.png */,
+				1A5A24F91CC5202D00DAA825 /* mic.png */,
+				1A5A24F71CC5200B00DAA825 /* SpeakerOffIcon.png */,
+				1A5A24F51CC51FFA00DAA825 /* SpeakerOnIcon.png */,
+				1A5A24F31CC51FE800DAA825 /* SettingIcon.png */,
+				1A5A24F11CC51FD200DAA825 /* SettingsIcon.png */,
+				1A5A24EF1CC51F8D00DAA825 /* Swap.png */,
+				1A5A24ED1CC51F7500DAA825 /* EnglishIcon.png */,
+				1A5A24EB1CC51F6600DAA825 /* AmharicIcon.png */,
+				1A5A24E91CC51F3100DAA825 /* GermanIcon.png */,
 				1AF81C901C441DB000EA45F8 /* AppDelegate.swift */,
-				1AF81C921C441DB000EA45F8 /* ViewController.swift */,
+				1A2218261C78CDD00066879A /* History.swift */,
+				1A4258D41C454C8500F6E890 /* SettingsViewController.swift */,
+				1AF81C921C441DB000EA45F8 /* MainViewController.swift */,
+				1A1CF3B91C5CCDF100AA8CDA /* TokenRequester.swift */,
+				1A4258B21C44273C00F6E890 /* TargetLanguageController.swift */,
+				1A4258B01C4426EA00F6E890 /* SourceLanguageController.swift */,
 				1AF81C941C441DB000EA45F8 /* Main.storyboard */,
+				1A2218201C789CBA0066879A /* TableViewCellController.swift */,
+				1A22D8FA1C49528C00D2631A /* AboutViewController.swift */,
+				1A4258D61C45523600F6E890 /* HistoryViewController.swift */,
+				1A4258B41C4429F800F6E890 /* LanguageCodes.swift */,
 				1AF81C9A1C441DB000EA45F8 /* Assets.xcassets */,
 				1AF81C9C1C441DB000EA45F8 /* LaunchScreen.storyboard */,
 				1AF81C9F1C441DB000EA45F8 /* Info.plist */,
@@ -131,6 +256,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1A1140441C5661E9005E7DBB /* AmharicKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A11404F1C5661EA005E7DBB /* Build configuration list for PBXNativeTarget "AmharicKeyboard" */;
+			buildPhases = (
+				1A1140411C5661E9005E7DBB /* Sources */,
+				1A1140421C5661E9005E7DBB /* Frameworks */,
+				1A1140431C5661E9005E7DBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmharicKeyboard;
+			productName = AmharicKeyboard;
+			productReference = 1A1140451C5661E9005E7DBB /* AmharicKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1AF81C8C1C441DAF00EA45F8 /* UIForTranslator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AF81CB81C441DB000EA45F8 /* Build configuration list for PBXNativeTarget "UIForTranslator" */;
@@ -138,10 +280,12 @@
 				1AF81C891C441DAF00EA45F8 /* Sources */,
 				1AF81C8A1C441DAF00EA45F8 /* Frameworks */,
 				1AF81C8B1C441DAF00EA45F8 /* Resources */,
+				1A1140501C5661EA005E7DBB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1A11404B1C5661EA005E7DBB /* PBXTargetDependency */,
 			);
 			name = UIForTranslator;
 			productName = UIForTranslator;
@@ -190,11 +334,17 @@
 		1AF81C851C441DAF00EA45F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "___HANADEMAS___";
 				TargetAttributes = {
+					1A1140441C5661E9005E7DBB = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = JQ99DJ6SM6;
+					};
 					1AF81C8C1C441DAF00EA45F8 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = JQ99DJ6SM6;
 					};
 					1AF81CA31C441DB000EA45F8 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -222,18 +372,42 @@
 				1AF81C8C1C441DAF00EA45F8 /* UIForTranslator */,
 				1AF81CA31C441DB000EA45F8 /* UIForTranslatorTests */,
 				1AF81CAE1C441DB000EA45F8 /* UIForTranslatorUITests */,
+				1A1140441C5661E9005E7DBB /* AmharicKeyboard */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1A1140431C5661E9005E7DBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A5A24E41CC5161100DAA825 /* globeIcon.png in Resources */,
+				1A00B2C31C5A9D9700CEE725 /* AbyssinicaSIL-R.ttf in Resources */,
+				1A5A24E81CC5162900DAA825 /* extendIcon.png in Resources */,
+				1A5A24E61CC5161E00DAA825 /* backspaceIcon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AF81C8B1C441DAF00EA45F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5A24FD1CC527CE00DAA825 /* Main.storyboard in Resources */,
+				1A1CF3BC1C5CD61900AA8CDA /* AbyssinicaSIL-R.ttf in Resources */,
 				1AF81C9E1C441DB000EA45F8 /* LaunchScreen.storyboard in Resources */,
+				1A5A24FC1CC5203B00DAA825 /* home.png in Resources */,
+				1A5A24F61CC51FFA00DAA825 /* SpeakerOnIcon.png in Resources */,
+				1A5A24EC1CC51F6600DAA825 /* AmharicIcon.png in Resources */,
+				1A5A24EE1CC51F7500DAA825 /* EnglishIcon.png in Resources */,
+				1A5A24EA1CC51F3200DAA825 /* GermanIcon.png in Resources */,
+				1A03F2541C47C03C004E7BAE /* Default-568h@2x.png in Resources */,
+				1A5A24F01CC51F8D00DAA825 /* Swap.png in Resources */,
+				1A5A24F81CC5200B00DAA825 /* SpeakerOffIcon.png in Resources */,
+				1A5A24FA1CC5202D00DAA825 /* mic.png in Resources */,
+				1A5A24F41CC51FE800DAA825 /* SettingIcon.png in Resources */,
+				1A5A24F21CC51FD200DAA825 /* SettingsIcon.png in Resources */,
 				1AF81C9B1C441DB000EA45F8 /* Assets.xcassets in Resources */,
-				1AF81C961C441DB000EA45F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +428,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1A1140411C5661E9005E7DBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A1140481C5661EA005E7DBB /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AF81C891C441DAF00EA45F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4258B51C4429F800F6E890 /* LanguageCodes.swift in Sources */,
 				1AF81C991C441DB000EA45F8 /* UIForTranslator.xcdatamodeld in Sources */,
-				1AF81C931C441DB000EA45F8 /* ViewController.swift in Sources */,
+				1A1CF3BA1C5CCDF200AA8CDA /* TokenRequester.swift in Sources */,
+				1A4258D51C454C8500F6E890 /* SettingsViewController.swift in Sources */,
+				1AF81C931C441DB000EA45F8 /* MainViewController.swift in Sources */,
+				1A4258B31C44273C00F6E890 /* TargetLanguageController.swift in Sources */,
+				1A2218211C789CBA0066879A /* TableViewCellController.swift in Sources */,
+				1A4258B11C4426EA00F6E890 /* SourceLanguageController.swift in Sources */,
+				1A2218271C78CDD00066879A /* History.swift in Sources */,
 				1AF81C911C441DB000EA45F8 /* AppDelegate.swift in Sources */,
+				1A4258D71C45523600F6E890 /* HistoryViewController.swift in Sources */,
+				1A22D8FB1C49528D00D2631A /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +474,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1A11404B1C5661EA005E7DBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A1140441C5661E9005E7DBB /* AmharicKeyboard */;
+			targetProxy = 1A11404A1C5661EA005E7DBB /* PBXContainerItemProxy */;
+		};
 		1AF81CA61C441DB000EA45F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1AF81C8C1C441DAF00EA45F8 /* UIForTranslator */;
@@ -315,6 +511,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1A11404D1C5661EA005E7DBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = AmharicKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslator.AmharicKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1A11404E1C5661EA005E7DBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = AmharicKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslator.AmharicKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		1AF81CB61C441DB000EA45F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -400,10 +624,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = UIForTranslator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -411,10 +640,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = UIForTranslator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -469,6 +703,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1A11404F1C5661EA005E7DBB /* Build configuration list for PBXNativeTarget "AmharicKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A11404D1C5661EA005E7DBB /* Debug */,
+				1A11404E1C5661EA005E7DBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1AF81C881C441DAF00EA45F8 /* Build configuration list for PBXProject "UIForTranslator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -485,6 +728,7 @@
 				1AF81CBA1C441DB000EA45F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AF81CBB1C441DB000EA45F8 /* Build configuration list for PBXNativeTarget "UIForTranslatorTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +737,7 @@
 				1AF81CBD1C441DB000EA45F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AF81CBE1C441DB000EA45F8 /* Build configuration list for PBXNativeTarget "UIForTranslatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +746,7 @@
 				1AF81CC01C441DB000EA45F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
