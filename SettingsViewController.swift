@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 import CoreData
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,MFMailComposeViewControllerDelegate {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
      //MARK: properties
      var settingsArray: [String] = ["Feedback", "About"]
@@ -20,25 +20,43 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: Methods
     
     // clear the translation history from coredata
-    @IBAction func clearHistoryPressed(sender: AnyObject) {
-           let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    @IBAction func clearHistoryPressed(_ sender: AnyObject) {
+           let appDelegate = UIApplication.shared.delegate as! AppDelegate
            let managedContext = appDelegate.managedObjectContext
-           let fetchRequest = NSFetchRequest(entityName: "History")
+           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
            fetchRequest.returnsObjectsAsFaults = false
-        
-           do {
-              let results = try managedContext.executeFetchRequest(fetchRequest)
-               for managedObject in results {
-                  let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
-                  managedContext.deleteObject(managedObjectData)
-               }
+        let alertController = UIAlertController(title: "Clear History", message: "Do you want to clear translation history?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            do {
+                let results = try managedContext.fetch(fetchRequest)
+                for managedObject in results {
+                    let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                    managedContext.delete(managedObjectData)
+                }
             } catch let error as NSError {
-                  print("Detele all data in : \(error) \(error.userInfo)")
+                print("Detele all data in : \(error) \(error.userInfo)")
             }
+            
+            
+
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        // Present the controller
+        self.present(alertController, animated: true, completion: nil)
+        
+        
     }
     
-    @IBAction func cancle(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancle(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -56,11 +74,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK : tableView delegate and datasource methods
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingsArray.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          if(indexPath.row == 0) {
             // Email Subject
             let  emailTitle:String = "FeedBack";
@@ -74,37 +92,38 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             mc.setMessageBody(messageBody, isHTML: false)
             mc.setToRecipients(toRecipents)
             // Present mail view controller on screen
-            self.presentViewController(mc, animated:true, completion:nil)
+            self.present(mc, animated:true, completion:nil)
          } else if(indexPath.row == 1) {
-             self.performSegueWithIdentifier("showabout", sender: self)
+             self.performSegue(withIdentifier: "showabout", sender: self)
          }
         
-         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         cell.textLabel?.text = settingsArray[indexPath.row]
         return cell
     }
     
     //MARK: MFMailComposeViewControllerDelegate methods
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        if(result == MFMailComposeResultCancelled){
-            print("Mail cancelled")
-        } else if(result == MFMailComposeResultSaved) {
-            print("Mail saved")
-        } else if( result == MFMailComposeResultSent){
-            print("Mail sent")
-        } else if( result==MFMailComposeResultFailed){
-            print("Mail sent failure: \(error!.localizedDescription)")
-        } else {
-          print("noting")
-        }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        if(result == MFMailComposeResultCancelled){
+//            print("Mail cancelled")
+//        } else if(result == MFMailComposeResultSaved) {
+//            print("Mail saved")
+//        } else if( result == MFMailComposeResultSent){
+//            print("Mail sent")
+//        } else if( result == MFMailComposeResultFailed){
+//            print("Mail sent failure: \(error!.localizedDescription)")
+//        } else {
+//          print("noting")
+//        }
+        print()
         
-       self.dismissViewControllerAnimated(true, completion: nil)
+       self.dismiss(animated: true, completion: nil)
     }
 }
 

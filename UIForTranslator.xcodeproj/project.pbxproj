@@ -86,7 +86,7 @@
 
 /* Begin PBXFileReference section */
 		1A00B2C21C5A9B2B00CEE725 /* AbyssinicaSIL-R.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AbyssinicaSIL-R.ttf"; path = "../../../../Downloads/AbyssinicaSIL-1-2.500/AbyssinicaSIL-R.ttf"; sourceTree = "<group>"; };
-		1A03F2531C47C03C004E7BAE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1A03F2531C47C03C004E7BAE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		1A03F2551C47DA07004E7BAE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1A0D6B411C4E40CE0033CF60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1A1140451C5661E9005E7DBB /* AmharicKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AmharicKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,13 +164,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A0AF7101E52E2EC00321208 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1AF81C971C441DB000EA45F8 /* UIForTranslator.xcdatamodeld */,
+				1A4258B41C4429F800F6E890 /* LanguageCodes.swift */,
+				1A1CF3B91C5CCDF100AA8CDA /* TokenRequester.swift */,
+				1A2218261C78CDD00066879A /* History.swift */,
+				1A2218201C789CBA0066879A /* TableViewCellController.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1A0AF7111E52E2F800321208 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1AF81C941C441DB000EA45F8 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1A0AF7121E52E30800321208 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1A4258D61C45523600F6E890 /* HistoryViewController.swift */,
+				1A4258D41C454C8500F6E890 /* SettingsViewController.swift */,
+				1A22D8FA1C49528C00D2631A /* AboutViewController.swift */,
+				1AF81C921C441DB000EA45F8 /* MainViewController.swift */,
+				1A4258B21C44273C00F6E890 /* TargetLanguageController.swift */,
+				1A4258B01C4426EA00F6E890 /* SourceLanguageController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		1A0AF7131E52E31800321208 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A03F2531C47C03C004E7BAE /* Default-568h@2x.png */,
+				1A5A24F11CC51FD200DAA825 /* SettingsIcon.png */,
+				1A5A24EF1CC51F8D00DAA825 /* Swap.png */,
+				1A5A24F31CC51FE800DAA825 /* SettingIcon.png */,
+				1A5A24ED1CC51F7500DAA825 /* EnglishIcon.png */,
+				1A5A24E91CC51F3100DAA825 /* GermanIcon.png */,
+				1A5A24EB1CC51F6600DAA825 /* AmharicIcon.png */,
+				1A5A24F51CC51FFA00DAA825 /* SpeakerOnIcon.png */,
+				1A5A24F71CC5200B00DAA825 /* SpeakerOffIcon.png */,
+				1A5A24F91CC5202D00DAA825 /* mic.png */,
+				1A5A24FB1CC5203B00DAA825 /* home.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1A0AF7141E52E3C000321208 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A00B2C21C5A9B2B00CEE725 /* AbyssinicaSIL-R.ttf */,
+				1A5A24E31CC5161100DAA825 /* globeIcon.png */,
+				1A5A24E71CC5162900DAA825 /* extendIcon.png */,
+				1A5A24E51CC5161E00DAA825 /* backspaceIcon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		1A1140461C5661EA005E7DBB /* AmharicKeyboard */ = {
 			isa = PBXGroup;
 			children = (
-				1A5A24E51CC5161E00DAA825 /* backspaceIcon.png */,
-				1A5A24E71CC5162900DAA825 /* extendIcon.png */,
-				1A5A24E31CC5161100DAA825 /* globeIcon.png */,
-				1A00B2C21C5A9B2B00CEE725 /* AbyssinicaSIL-R.ttf */,
+				1A0AF7141E52E3C000321208 /* Resources */,
 				1A1140471C5661EA005E7DBB /* KeyboardViewController.swift */,
 				1A1140491C5661EA005E7DBB /* Info.plist */,
 			);
@@ -182,7 +241,6 @@
 			children = (
 				1A0D6B411C4E40CE0033CF60 /* AVFoundation.framework */,
 				1A03F2551C47DA07004E7BAE /* MessageUI.framework */,
-				1A03F2531C47C03C004E7BAE /* Default-568h@2x.png */,
 				1AF81C8F1C441DAF00EA45F8 /* UIForTranslator */,
 				1AF81CA71C441DB000EA45F8 /* UIForTranslatorTests */,
 				1AF81CB21C441DB000EA45F8 /* UIForTranslatorUITests */,
@@ -205,32 +263,14 @@
 		1AF81C8F1C441DAF00EA45F8 /* UIForTranslator */ = {
 			isa = PBXGroup;
 			children = (
-				1A5A24FB1CC5203B00DAA825 /* home.png */,
-				1A5A24F91CC5202D00DAA825 /* mic.png */,
-				1A5A24F71CC5200B00DAA825 /* SpeakerOffIcon.png */,
-				1A5A24F51CC51FFA00DAA825 /* SpeakerOnIcon.png */,
-				1A5A24F31CC51FE800DAA825 /* SettingIcon.png */,
-				1A5A24F11CC51FD200DAA825 /* SettingsIcon.png */,
-				1A5A24EF1CC51F8D00DAA825 /* Swap.png */,
-				1A5A24ED1CC51F7500DAA825 /* EnglishIcon.png */,
-				1A5A24EB1CC51F6600DAA825 /* AmharicIcon.png */,
-				1A5A24E91CC51F3100DAA825 /* GermanIcon.png */,
+				1A0AF7131E52E31800321208 /* Resources */,
+				1A0AF7121E52E30800321208 /* ViewController */,
+				1A0AF7111E52E2F800321208 /* View */,
+				1A0AF7101E52E2EC00321208 /* Model */,
 				1AF81C901C441DB000EA45F8 /* AppDelegate.swift */,
-				1A2218261C78CDD00066879A /* History.swift */,
-				1A4258D41C454C8500F6E890 /* SettingsViewController.swift */,
-				1AF81C921C441DB000EA45F8 /* MainViewController.swift */,
-				1A1CF3B91C5CCDF100AA8CDA /* TokenRequester.swift */,
-				1A4258B21C44273C00F6E890 /* TargetLanguageController.swift */,
-				1A4258B01C4426EA00F6E890 /* SourceLanguageController.swift */,
-				1AF81C941C441DB000EA45F8 /* Main.storyboard */,
-				1A2218201C789CBA0066879A /* TableViewCellController.swift */,
-				1A22D8FA1C49528C00D2631A /* AboutViewController.swift */,
-				1A4258D61C45523600F6E890 /* HistoryViewController.swift */,
-				1A4258B41C4429F800F6E890 /* LanguageCodes.swift */,
 				1AF81C9A1C441DB000EA45F8 /* Assets.xcassets */,
 				1AF81C9C1C441DB000EA45F8 /* LaunchScreen.storyboard */,
 				1AF81C9F1C441DB000EA45F8 /* Info.plist */,
-				1AF81C971C441DB000EA45F8 /* UIForTranslator.xcdatamodeld */,
 			);
 			path = UIForTranslator;
 			sourceTree = "<group>";
@@ -341,17 +381,21 @@
 					1A1140441C5661E9005E7DBB = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = JQ99DJ6SM6;
+						LastSwiftMigration = 0820;
 					};
 					1AF81C8C1C441DAF00EA45F8 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = JQ99DJ6SM6;
+						LastSwiftMigration = 0820;
 					};
 					1AF81CA31C441DB000EA45F8 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 1AF81C8C1C441DAF00EA45F8;
 					};
 					1AF81CAE1C441DB000EA45F8 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 1AF81C8C1C441DAF00EA45F8;
 					};
 				};
@@ -522,6 +566,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslator.AmharicKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -536,6 +581,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslator.AmharicKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -628,11 +674,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = UIForTranslator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -644,11 +691,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = UIForTranslator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -660,6 +708,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UIForTranslator.app/UIForTranslator";
 			};
 			name = Debug;
@@ -672,6 +721,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UIForTranslator.app/UIForTranslator";
 			};
 			name = Release;
@@ -683,6 +733,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = UIForTranslator;
 				USES_XCTRUNNER = YES;
 			};
@@ -695,6 +746,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HANABELETE.UIForTranslatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = UIForTranslator;
 				USES_XCTRUNNER = YES;
 			};

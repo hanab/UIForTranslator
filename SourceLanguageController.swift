@@ -12,41 +12,41 @@ class SourceLangugeController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: Properties
     
-    var langSourceDelegate=UIApplication.sharedApplication().delegate! as! AppDelegate
+    var langSourceDelegate=UIApplication.shared.delegate! as! AppDelegate
     @IBOutlet var tableView: UITableView!
     
     //MARK: Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.separatorStyle = .SingleLine
-        self.tableView.separatorColor = UIColor.greenColor()
+        self.tableView.separatorStyle = .singleLine
+        self.tableView.separatorColor = UIColor.green
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
         
-    @IBAction func cancle(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancle(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: tableViewDelegateAndDatasource methods
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return langSourceDelegate.languageArray.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         langSourceDelegate.sourceLan = LanguageCodes(name: langSourceDelegate.languageArray[indexPath.row].getLangName(), langCode: langSourceDelegate.languageArray[indexPath.row].getLangCode(), flag: langSourceDelegate.languageArray[indexPath.row].getFlag())
         print(langSourceDelegate.sourceLan.getLangCode())
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = langSourceDelegate.languageArray[indexPath.row].getLangName()
         cell.imageView?.image = langSourceDelegate.languageArray[indexPath.row].getFlag()

@@ -40,7 +40,7 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
         self.createKeyboardKeys(1)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // adjust the height of the keyboard view to show extended keys
@@ -54,42 +54,42 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
         }
         
         let heightConstraint = NSLayoutConstraint(item:self.view,
-            attribute: .Height,
-            relatedBy: .Equal,
+            attribute: .height,
+            relatedBy: .equal,
             toItem: nil,
-            attribute: .NotAnAttribute,
+            attribute: .notAnAttribute,
             multiplier: 0.0,
             constant: expandedHeight)
         self.view.addConstraint(heightConstraint)
     }
     
     // function to add individual keyboard keys
-     func createButtonWithTitle(title: String) -> UIButton {
-        let button = UIButton(type: UIButtonType.Custom)
-        button.frame = CGRectMake(0, 0, 20, 20)
-        button.setTitle(title, forState: .Normal)
+     func createButtonWithTitle(_ title: String) -> UIButton {
+        let button = UIButton(type: UIButtonType.custom)
+        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        button.setTitle(title, for: UIControlState())
         button.sizeToFit()
         button.titleLabel?.font = font
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
-        button.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        button.setTitleColor(UIColor.darkGray, for: UIControlState())
         button.layer.cornerRadius = 8
         
         if(title == "ext") {
-           button.backgroundColor = .None
-           button.setImage(UIImage(named: "extendIcon.png"), forState: .Normal)
-           button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-           button.tintColor = UIColor.lightGrayColor()
+           button.backgroundColor = .none
+           button.setImage(UIImage(named: "extendIcon.png"), for: UIControlState())
+           button.setTitleColor(UIColor.white, for: UIControlState())
+           button.tintColor = UIColor.lightGray
         }
         if(title == "bc") {
-           button.backgroundColor = .None
-           button.setImage(UIImage(named: "backspaceIcon.png"), forState: .Normal)
-           button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-           button.tintColor = UIColor.lightGrayColor()
+           button.backgroundColor = .none
+           button.setImage(UIImage(named: "backspaceIcon.png"), for: UIControlState())
+           button.setTitleColor(UIColor.white, for: UIControlState())
+           button.tintColor = UIColor.lightGray
         }
         
-        button.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
-        let longPress = UILongPressGestureRecognizer(target: self, action: "didLongPress:")
+        button.addTarget(self, action: #selector(KeyboardViewController.didTapButton(_:)), for: .touchUpInside)
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(KeyboardViewController.didLongPress(_:)))
         //longPress.delaysTouchesBegan = true
         longPress.minimumPressDuration = 0.5
         button.addGestureRecognizer(longPress)
@@ -97,21 +97,21 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
     }
     
     //longpress action
-    func didLongPress(sender: AnyObject?) {
+    func didLongPress(_ sender: AnyObject?) {
         let gesture = sender as! UIGestureRecognizer
         let button:UIButton  = gesture.view as! UIButton
         
-        if(gesture.state == UIGestureRecognizerState.Began) {
-           if((letterRow.indexForKey((button.titleLabel?.text)!)) != nil) {
+        if(gesture.state == UIGestureRecognizerState.began) {
+           if((letterRow.index(forKey: (button.titleLabel?.text)!)) != nil) {
                let buttonTitleTop = letterRow[(button.titleLabel?.text)!]
                var t1:[NSString] = []
                var t2:[NSString] = []
             
                for i in 0...3 {
-                 t1.append(buttonTitleTop![i])
+                 t1.append(buttonTitleTop![i] as NSString)
                }
                for i in 4...buttonTitleTop!.count-1 {
-                t2.append(buttonTitleTop![i])
+                t2.append(buttonTitleTop![i] as NSString)
                }
             
                exrow1 = self.createExtendedRowsOfButtons(t1)
@@ -122,17 +122,17 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
                exrow2.translatesAutoresizingMaskIntoConstraints = false
                self.addconstrantsToExtendedView(self.view, extendedViews: [exrow1,exrow2], buttonView: button)
             }
-         } else if(gesture.state == UIGestureRecognizerState.Ended) {
+         } else if(gesture.state == UIGestureRecognizerState.ended) {
            exrow1.removeFromSuperview()
            exrow2.removeFromSuperview()
          }
      }
     
       // action for key press
-     func didTapButton(sender: AnyObject?) {
+     func didTapButton(_ sender: AnyObject?) {
         let button = sender as! UIButton
         button.titleLabel?.font = font
-        let title = button.titleForState(.Normal)!
+        let title = button.title(for: UIControlState())!
         
         switch title {
             
@@ -162,43 +162,43 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
             (textDocumentProxy as UIKeyInput).insertText(title)
         }
         
-        UIView.animateWithDuration(0.2, animations: {
-            button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2.0, 2.0)
+        UIView.animate(withDuration: 0.2, animations: {
+            button.transform = CGAffineTransform.identity.scaledBy(x: 2.0, y: 2.0)
             }, completion: {(_) -> Void in
                button.transform =
-                CGAffineTransformScale(CGAffineTransformIdentity, 1, 1)
+                CGAffineTransform.identity.scaledBy(x: 1, y: 1)
         })
     }
     
     
-    func addIndividualButtonConstraints(buttons: [UIButton], mainView: UIView){
-        for (index, button) in buttons.enumerate() {
+    func addIndividualButtonConstraints(_ buttons: [UIButton], mainView: UIView){
+        for (index, button) in buttons.enumerated() {
             
-            let topConstraint = NSLayoutConstraint(item: button, attribute: .Top, relatedBy: .Equal, toItem: mainView, attribute: .Top, multiplier: 1.0, constant: 1)
+            let topConstraint = NSLayoutConstraint(item: button, attribute: .top, relatedBy: .equal, toItem: mainView, attribute: .top, multiplier: 1.0, constant: 1)
             
-            let bottomConstraint = NSLayoutConstraint(item: button, attribute: .Bottom, relatedBy: .Equal, toItem: mainView, attribute: .Bottom, multiplier: 1.0, constant: -1)
+            let bottomConstraint = NSLayoutConstraint(item: button, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .bottom, multiplier: 1.0, constant: -1)
             
             var rightConstraint : NSLayoutConstraint!
             
             if index == buttons.count - 1 {
-                rightConstraint = NSLayoutConstraint(item: button, attribute: .Right, relatedBy: .Equal, toItem: mainView, attribute: .Right, multiplier: 1.0, constant: -1)
+                rightConstraint = NSLayoutConstraint(item: button, attribute: .right, relatedBy: .equal, toItem: mainView, attribute: .right, multiplier: 1.0, constant: -1)
                 
             } else {
                 let nextButton = buttons[index+1]
-                rightConstraint = NSLayoutConstraint(item: button, attribute: .Right, relatedBy: .Equal, toItem: nextButton, attribute: .Left, multiplier: 1.0, constant: -4)
+                rightConstraint = NSLayoutConstraint(item: button, attribute: .right, relatedBy: .equal, toItem: nextButton, attribute: .left, multiplier: 1.0, constant: -4)
            }
             
             var leftConstraint : NSLayoutConstraint!
             if index == 0 {
-                leftConstraint = NSLayoutConstraint(item: button, attribute: .Left, relatedBy: .Equal, toItem: mainView, attribute: .Left, multiplier: 1.0, constant: 1)
+                leftConstraint = NSLayoutConstraint(item: button, attribute: .left, relatedBy: .equal, toItem: mainView, attribute: .left, multiplier: 1.0, constant: 1)
                 
              } else {
                 
                 let prevtButton = buttons[index-1]
-                leftConstraint = NSLayoutConstraint(item: button, attribute: .Left, relatedBy: .Equal, toItem: prevtButton, attribute: .Right, multiplier: 1.0, constant: 1)
+                leftConstraint = NSLayoutConstraint(item: button, attribute: .left, relatedBy: .equal, toItem: prevtButton, attribute: .right, multiplier: 1.0, constant: 1)
                 
                 let firstButton = buttons[0]
-                let widthConstraint = NSLayoutConstraint(item: firstButton, attribute: .Width, relatedBy: .Equal, toItem: button, attribute: .Width, multiplier: 1.0, constant: 0)
+                let widthConstraint = NSLayoutConstraint(item: firstButton, attribute: .width, relatedBy: .equal, toItem: button, attribute: .width, multiplier: 1.0, constant: 0)
                 
                 mainView.addConstraint(widthConstraint)
             }
@@ -207,9 +207,9 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
         }
     }
     
-    func createRowOfButtons(buttonTitles: [NSString])-> UIView {
+    func createRowOfButtons(_ buttonTitles: [NSString])-> UIView {
        var buttons = [UIButton]()
-       let keyboardRowView = UIView(frame: CGRectMake(0, 0, 320, 50))
+       let keyboardRowView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
     
         for buttonTitle in buttonTitles{
            let button = createButtonWithTitle(buttonTitle as String)
@@ -221,10 +221,10 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
     }
     
     
-    func createExtendedRowsOfButtons(buttonTitles: [NSString])-> UIView  {
+    func createExtendedRowsOfButtons(_ buttonTitles: [NSString])-> UIView  {
         var buttons = [UIButton]()
-        let extendedRowView = UIView(frame: CGRectMake(0, 0, 160, 30))
-        extendedRowView.backgroundColor = UIColor.whiteColor()
+        let extendedRowView = UIView(frame: CGRect(x: 0, y: 0, width: 160, height: 30))
+        extendedRowView.backgroundColor = UIColor.white
         
         for buttonTitle in buttonTitles{
             let button = createButtonWithTitle(buttonTitle as String)
@@ -237,23 +237,23 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
     }
     
     
-    func addconstrantsToExtendedView(inputView:UIView, extendedViews:[UIView], buttonView:UIButton) {
-        for (index, extendedView) in extendedViews.enumerate() {
+    func addconstrantsToExtendedView(_ inputView:UIView, extendedViews:[UIView], buttonView:UIButton) {
+        for (index, extendedView) in extendedViews.enumerated() {
             var leftConstraint: NSLayoutConstraint
             
             if(buttonView.frame.origin.x < 160 ) {
-               leftConstraint = NSLayoutConstraint(item: extendedView, attribute: .Left, relatedBy: .Equal, toItem: buttonView, attribute: .Left, multiplier: 1.0, constant: 1)
+               leftConstraint = NSLayoutConstraint(item: extendedView, attribute: .left, relatedBy: .equal, toItem: buttonView, attribute: .left, multiplier: 1.0, constant: 1)
             } else {
-                 leftConstraint = NSLayoutConstraint(item: extendedView, attribute: .Right, relatedBy: .Equal, toItem: buttonView, attribute: .Right, multiplier: 1.0, constant: 1)
+                 leftConstraint = NSLayoutConstraint(item: extendedView, attribute: .right, relatedBy: .equal, toItem: buttonView, attribute: .right, multiplier: 1.0, constant: 1)
             }
             
             inputView.addConstraints([leftConstraint])
             
             if(index != 0) {
                let prevRow = extendedViews[index-1]
-               let topConstraint = NSLayoutConstraint(item: extendedView, attribute: .Top, relatedBy: .Equal, toItem: prevRow, attribute: .Bottom, multiplier: 1.0, constant: 10)
+               let topConstraint = NSLayoutConstraint(item: extendedView, attribute: .top, relatedBy: .equal, toItem: prevRow, attribute: .bottom, multiplier: 1.0, constant: 10)
                let firstRow = extendedViews[0]
-               let heightConstraint = NSLayoutConstraint(item: firstRow, attribute: .Height, relatedBy: .Equal, toItem: extendedView, attribute: .Height, multiplier: 1.0, constant: 0)
+               let heightConstraint = NSLayoutConstraint(item: firstRow, attribute: .height, relatedBy: .equal, toItem: extendedView, attribute: .height, multiplier: 1.0, constant: 0)
                inputView.addConstraint(heightConstraint)
                inputView.addConstraint(topConstraint)
             }
@@ -261,34 +261,34 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
             var bottomConstraint: NSLayoutConstraint
             
             if index == extendedViews.count - 1 {
-                bottomConstraint = NSLayoutConstraint(item: extendedView, attribute: .Bottom, relatedBy: .Equal, toItem: buttonView, attribute: .Top, multiplier: 1.0, constant: 0)
+                bottomConstraint = NSLayoutConstraint(item: extendedView, attribute: .bottom, relatedBy: .equal, toItem: buttonView, attribute: .top, multiplier: 1.0, constant: 0)
             } else {
                 let nextRow = extendedViews[index+1]
-                bottomConstraint = NSLayoutConstraint(item: extendedView, attribute: .Bottom, relatedBy: .Equal, toItem: nextRow, attribute: .Top, multiplier: 1.0, constant: 0)
+                bottomConstraint = NSLayoutConstraint(item: extendedView, attribute: .bottom, relatedBy: .equal, toItem: nextRow, attribute: .top, multiplier: 1.0, constant: 0)
             }
             
             inputView.addConstraint(bottomConstraint)
         }
     }
     
-    func addConstraintsToInputView(inputView: UIView, rowViews: [UIView]){
+    func addConstraintsToInputView(_ inputView: UIView, rowViews: [UIView]){
         
-        for (index, rowView) in rowViews.enumerate() {
-            let rightSideConstraint = NSLayoutConstraint(item: rowView, attribute: .Right, relatedBy: .Equal, toItem: inputView, attribute: .Right, multiplier: 1.0, constant: -1)
+        for (index, rowView) in rowViews.enumerated() {
+            let rightSideConstraint = NSLayoutConstraint(item: rowView, attribute: .right, relatedBy: .equal, toItem: inputView, attribute: .right, multiplier: 1.0, constant: -1)
             
-            let leftConstraint = NSLayoutConstraint(item: rowView, attribute: .Left, relatedBy: .Equal, toItem: inputView, attribute: .Left, multiplier: 1.0, constant: 1)
+            let leftConstraint = NSLayoutConstraint(item: rowView, attribute: .left, relatedBy: .equal, toItem: inputView, attribute: .left, multiplier: 1.0, constant: 1)
             
             inputView.addConstraints([leftConstraint, rightSideConstraint])
             var topConstraint: NSLayoutConstraint
             
             if index == 0 {
-                topConstraint = NSLayoutConstraint(item: rowView, attribute: .Top, relatedBy: .Equal, toItem: inputView, attribute: .Top, multiplier: 1.0, constant: 60)
+                topConstraint = NSLayoutConstraint(item: rowView, attribute: .top, relatedBy: .equal, toItem: inputView, attribute: .top, multiplier: 1.0, constant: 60)
             } else {
                 let prevRow = rowViews[index-1]
-                topConstraint = NSLayoutConstraint(item: rowView, attribute: .Top, relatedBy: .Equal, toItem: prevRow, attribute: .Bottom, multiplier: 1.0, constant: 10)
+                topConstraint = NSLayoutConstraint(item: rowView, attribute: .top, relatedBy: .equal, toItem: prevRow, attribute: .bottom, multiplier: 1.0, constant: 10)
                 
                 let firstRow = rowViews[0]
-                let heightConstraint = NSLayoutConstraint(item: firstRow, attribute: .Height, relatedBy: .Equal, toItem: rowView, attribute: .Height, multiplier: 1.0, constant: 0)
+                let heightConstraint = NSLayoutConstraint(item: firstRow, attribute: .height, relatedBy: .equal, toItem: rowView, attribute: .height, multiplier: 1.0, constant: 0)
                 
                 inputView.addConstraint(heightConstraint)
             }
@@ -297,10 +297,10 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
             var bottomConstraint: NSLayoutConstraint
             
             if index == rowViews.count - 1 {
-                bottomConstraint = NSLayoutConstraint(item: rowView, attribute: .Bottom, relatedBy: .Equal, toItem: inputView, attribute: .Bottom, multiplier: 1.0, constant: 0)
+                bottomConstraint = NSLayoutConstraint(item: rowView, attribute: .bottom, relatedBy: .equal, toItem: inputView, attribute: .bottom, multiplier: 1.0, constant: 0)
             } else {
                 let nextRow = rowViews[index+1]
-                bottomConstraint = NSLayoutConstraint(item: rowView, attribute: .Bottom, relatedBy: .Equal, toItem: nextRow, attribute: .Top, multiplier: 1.0, constant: 0)
+                bottomConstraint = NSLayoutConstraint(item: rowView, attribute: .bottom, relatedBy: .equal, toItem: nextRow, attribute: .top, multiplier: 1.0, constant: 0)
             }
             
             inputView.addConstraint(bottomConstraint)
@@ -308,7 +308,7 @@ class KeyboardViewController: UIInputViewController, UIGestureRecognizerDelegate
     }
     
     
-    func createKeyboardKeys(keySet:Int){
+    func createKeyboardKeys(_ keySet:Int){
         var buttonTitleTop, buttonTitleMiddle, buttonTitleMiddle1 ,buttonTitleBottom , buttonTitlesFunc : [NSString]
         
         if(keySet == 1){

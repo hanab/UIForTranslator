@@ -15,7 +15,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate ,UITableViewD
     
     //MARK: Properties
     
-    var langSourceDelegate=UIApplication.sharedApplication().delegate! as! AppDelegate
+    var langSourceDelegate=UIApplication.shared.delegate! as! AppDelegate
     @IBOutlet var clearButton: UIButton!
     @IBOutlet var tableView: UITableView!
     
@@ -29,10 +29,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate ,UITableViewD
         tableView.estimatedRowHeight = 44
     }
     
-     override func viewWillAppear(animated: Bool) {
+     override func viewWillAppear(_ animated: Bool) {
         let context =  langSourceDelegate.managedObjectContext
-        let request = NSFetchRequest(entityName: "History")
-        langSourceDelegate.historyArray = (try! context.executeFetchRequest(request)) as! [History]
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
+        langSourceDelegate.historyArray = (try! context.fetch(request)) as! [History]
         self.tableView.reloadData()
     }
     
@@ -40,11 +40,11 @@ class HistoryViewController: UIViewController, UITableViewDelegate ,UITableViewD
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func cancle(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancle(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func getLanCode(name:String)->LanguageCodes {
+    func getLanCode(_ name:String)->LanguageCodes {
         var langCode:LanguageCodes!
         for i in 0...self.langSourceDelegate.languageArray.count-1 {
             if(self.langSourceDelegate.languageArray[i].getLangName() == name) {
@@ -57,44 +57,44 @@ class HistoryViewController: UIViewController, UITableViewDelegate ,UITableViewD
 
     //MARK: tableViewDataSourceAndDelegate Methods
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return langSourceDelegate.historyArray.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCellController
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellController
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         let note = langSourceDelegate.historyArray[indexPath.row] as History!
-        let lansource = self.getLanCode(note.sourceLan)
-        let lantar = self.getLanCode(note.targetLan)
-        cell.targetText.text = note.targetText
-        cell.sourceText.text = note.sourceText
+        let lansource = self.getLanCode((note?.sourceLan)!)
+        let lantar = self.getLanCode((note?.targetLan)!)
+        cell.targetText.text = note?.targetText
+        cell.sourceText.text = note?.sourceText
         cell.sourceImage.image = lansource.getFlag()
         cell.targetImage.image = lantar.getFlag()
-        print(note.targetText)
+        print(note?.targetText)
         return cell
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         switch editingStyle {
-            case .Delete :
+            case .delete :
             let context:NSManagedObjectContext = langSourceDelegate.managedObjectContext
-            context.deleteObject(langSourceDelegate.historyArray[indexPath.row] as NSManagedObject)
-            langSourceDelegate.historyArray.removeAtIndex(indexPath.row)
+            context.delete(langSourceDelegate.historyArray[indexPath.row] as NSManagedObject)
+            langSourceDelegate.historyArray.remove(at: indexPath.row)
             
             do {
                 try context.save()
             } catch  let deletError as NSError{
                 print("delete error: \(deletError.localizedDescription)")
             }
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
                 
             default :
                 return

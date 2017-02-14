@@ -15,7 +15,7 @@ class MainViewController: UIViewController, UITextViewDelegate, AccessTokenDeleg
     //MARK: properties
     let font:UIFont = UIFont(name: "AbyssinicaSIL", size: 20)!
     let access = AccessTokenRequester()
-    var langSourceDelegate=UIApplication.sharedApplication().delegate! as! AppDelegate
+    var langSourceDelegate=UIApplication.shared.delegate! as! AppDelegate
     let synth = AVSpeechSynthesizer()
     var speakText = AVSpeechUtterance(string: "")
     //var cancle:UIBarButtonItem!
@@ -37,18 +37,20 @@ class MainViewController: UIViewController, UITextViewDelegate, AccessTokenDeleg
         self.addBarButtonItem(langSourceDelegate.targetLan.getFlag(), isLeftItem: false)
         self.sourceText.layer.borderWidth = 1.0
         self.sourceText.layer.cornerRadius = 8
-        self.sourceText.layer.borderColor = UIColor.whiteColor().CGColor
+        self.sourceText.layer.borderColor = UIColor.white.cgColor
         self.trargetText.layer.borderWidth = 1.0
         self.trargetText.layer.cornerRadius = 8
-        self.trargetText.layer.borderColor = UIColor.whiteColor().CGColor
-        self.addToolbarOnKeyboard(false)
+        self.trargetText.layer.borderColor = UIColor.white.cgColor
+        //self.sourceText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
+       self.addToolbarOnKeyboard(false)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
        if(langSourceDelegate.sourceLan != nil) {
           self.addBarButtonItem(langSourceDelegate.sourceLan.getFlag(), isLeftItem: true)
        }
@@ -57,12 +59,12 @@ class MainViewController: UIViewController, UITextViewDelegate, AccessTokenDeleg
        }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        super.touchesBegan(touches, withEvent: event)
+        super.touchesBegan(touches, with: event)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         sourceText.resignFirstResponder()
         trargetText.resignFirstResponder()
     }
@@ -70,16 +72,16 @@ class MainViewController: UIViewController, UITextViewDelegate, AccessTokenDeleg
     
     //show lists of supported languages
     func sourceLanList() {
-        self.performSegueWithIdentifier("sourceShow", sender: self)
+        self.performSegue(withIdentifier: "sourceShow", sender: self)
     }
     
     func targetLanList() {
-        self.performSegueWithIdentifier("targetShow", sender: self)
+        self.performSegue(withIdentifier: "targetShow", sender: self)
     }
     
     //MARK: textview delegate methods
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(textView.text.isEmpty && sourceText.text == "") {
             self.addToolbarOnKeyboard(false)
         } else {
@@ -88,57 +90,58 @@ class MainViewController: UIViewController, UITextViewDelegate, AccessTokenDeleg
         return true
     }
     
-    func textViewDidBeginEditing(textView: UITextView) {
-        sourceText.backgroundColor = UIColor.lightGrayColor()
+    func textViewDidBeginEditing(_ textView: UITextView) {
+         self.addToolbarOnKeyboard(true)
+        sourceText.backgroundColor = UIColor.lightGray
     }
     
-    func textViewShouldEndEditing(textView: UITextView) -> Bool {
-        sourceText.backgroundColor = UIColor.whiteColor()
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        sourceText.backgroundColor = UIColor.white
         return true
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         textView.resignFirstResponder()
     }
     
     //MARK:  AccessTokenDelegate methods
     
-    func translationEroor(ac: AccessTokenRequester, error: String) {
+    func translationEroor(_ ac: AccessTokenRequester, error: String) {
         trargetText.text = error
     }
     
-    func translatedText(ac: AccessTokenRequester, text: NSString) {
+    func translatedText(_ ac: AccessTokenRequester, text: NSString) {
         print(" start translate")
-        trargetText.backgroundColor = UIColor.lightGrayColor()
+        trargetText.backgroundColor = UIColor.lightGray
         trargetText.text = text as String
     }
     
-    func detectedLanguage(ac: AccessTokenRequester, lan: NSString) {
+    func detectedLanguage(_ ac: AccessTokenRequester, lan: NSString) {
         print(" start detect")
     }
 
     //MARK: event action methods
-    func addToolbarOnKeyboard(active:Bool) {
-        let toolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0,view.frame.width, 50))
-        toolbar.barStyle = UIBarStyle.BlackTranslucent
-        toolbar.barStyle = UIBarStyle.BlackTranslucent
-        let cancle: UIBarButtonItem = UIBarButtonItem(title: "cancle", style: UIBarButtonItemStyle.Done, target: self, action: Selector("cancleButtonAction"))
-        let clear: UIBarButtonItem = UIBarButtonItem(title: "clear", style: UIBarButtonItemStyle.Done, target: self, action: Selector("clearButtonAction"))
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let translate: UIBarButtonItem = UIBarButtonItem(title: "translate", style: UIBarButtonItemStyle.Done, target: self, action: Selector("translateButtonAction"))
+    func addToolbarOnKeyboard(_ active:Bool) {
+        let toolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,width: view.frame.width, height: 50))
+        toolbar.barStyle = UIBarStyle.blackTranslucent
+        toolbar.barStyle = UIBarStyle.blackTranslucent
+        let cancle: UIBarButtonItem = UIBarButtonItem(title: "cancle", style: UIBarButtonItemStyle.done, target: self, action: #selector(MainViewController.cancleButtonAction))
+        let clear: UIBarButtonItem = UIBarButtonItem(title: "clear", style: UIBarButtonItemStyle.done, target: self, action: #selector(MainViewController.clearButtonAction))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let translate: UIBarButtonItem = UIBarButtonItem(title: "translate", style: UIBarButtonItemStyle.done, target: self, action: #selector(MainViewController.translateButtonAction))
         var items:[UIBarButtonItem] = []
         if(active == true) {
-            clear.enabled = true
-            translate.enabled = true
+            clear.isEnabled = true
+            translate.isEnabled = true
             items = [cancle,clear,flexSpace,translate]
         } else {
-            clear.enabled = false
-            translate.enabled = false
+            clear.isEnabled = false
+            translate.isEnabled = false
             items = [cancle,clear,flexSpace,translate]
         }
         
         toolbar.items = items
-        toolbar.barTintColor = UIColor.greenColor()
+        toolbar.barTintColor = UIColor.green
         toolbar.sizeToFit()
         self.sourceText.inputAccessoryView = toolbar
     }
@@ -156,9 +159,9 @@ class MainViewController: UIViewController, UITextViewDelegate, AccessTokenDeleg
         sourceText.resignFirstResponder()
         sourceText.font = font
         print(" start translate")
-        access.traslateTextFromSourceToTarget(sourceText.text, sourceLan: langSourceDelegate.sourceLan.getLangCode(), TargetLan: langSourceDelegate.targetLan.getLangCode())
-        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let history = NSEntityDescription.insertNewObjectForEntityForName("History",inManagedObjectContext: context) as! History
+        access.traslateTextFromSourceToTarget(sourceText.text as NSString, sourceLan: langSourceDelegate.sourceLan.getLangCode() as NSString, TargetLan: langSourceDelegate.targetLan.getLangCode() as NSString)
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        let history = NSEntityDescription.insertNewObject(forEntityName: "History",into: context) as! History
         history.sourceLan = langSourceDelegate.sourceLan.getLangName()
         history.targetLan = langSourceDelegate.targetLan.getLangName()
         history.sourceText = sourceText.text
@@ -170,34 +173,43 @@ class MainViewController: UIViewController, UITextViewDelegate, AccessTokenDeleg
         }
     }
     
-    @IBAction func speak(sender: AnyObject) {
+    @IBAction func speak(_ sender: AnyObject) {
         speakText = AVSpeechUtterance(string: sourceText.text)
         speakText.rate = 0.3
-        synth.speakUtterance(speakText)
+        synth.speak(speakText)
     }
     
-    func addBarButtonItem(image:UIImage , isLeftItem:Bool) {
+    func addBarButtonItem(_ image:UIImage , isLeftItem:Bool) {
          if(isLeftItem) {
             let myBtn: UIButton = UIButton()
-            myBtn.setImage(image, forState: .Normal)
-            myBtn.frame = CGRectMake(0, 0, 70, 70)
-            myBtn.addTarget(self, action: "sourceLanList", forControlEvents: .TouchUpInside)
-            self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(customView: myBtn), animated: true)
+            myBtn.setImage(image, for: UIControlState())
+            myBtn.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
+            myBtn.addTarget(self, action: #selector(MainViewController.sourceLanList), for: .touchUpInside)
+            self.navigationItem.setLeftBarButton(UIBarButtonItem(customView: myBtn), animated: true)
          } else {
             let myBtn2: UIButton = UIButton()
-            myBtn2.setImage(image, forState: .Normal)
-            myBtn2.frame = CGRectMake(0, 0, 70, 70)
-            myBtn2.addTarget(self, action: "targetLanList", forControlEvents: .TouchUpInside)
-            self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: myBtn2), animated: true)
+            myBtn2.setImage(image, for: UIControlState())
+            myBtn2.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
+            myBtn2.addTarget(self, action: #selector(MainViewController.targetLanList), for: .touchUpInside)
+            self.navigationItem.setRightBarButton(UIBarButtonItem(customView: myBtn2), animated: true)
         }
     }
 
-    @IBAction func SwapPressed(sender: AnyObject) {
+    @IBAction func SwapPressed(_ sender: AnyObject) {
         let temp = langSourceDelegate.targetLan
         langSourceDelegate.targetLan = langSourceDelegate.sourceLan
         langSourceDelegate.sourceLan = temp
         self.addBarButtonItem(langSourceDelegate.sourceLan.getFlag(), isLeftItem: true)
         self.addBarButtonItem(langSourceDelegate.targetLan.getFlag(), isLeftItem: false)
+    }
+    func textFieldDidChange(_ sourceText: UITextField) {
+        
+        if((sourceText.text?.isEmpty)! && sourceText.text == "") {
+            self.addToolbarOnKeyboard(false)
+        } else {
+            self.addToolbarOnKeyboard(true)
+        }
+        
     }
 }
 

@@ -13,9 +13,9 @@ class LanguageCodes : NSObject {
     
     //MARK: Properties
     
-    private var name:String
-    private var langCode:String
-    private var flag:UIImage
+    fileprivate var name:String
+    fileprivate var langCode:String
+    fileprivate var flag:UIImage
     
     //MARK: init
     
